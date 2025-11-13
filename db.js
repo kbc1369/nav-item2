@@ -74,9 +74,11 @@ db.serialize(() => {
         ['Home', 1],
         ['Ai Stuff', 2],
         ['Cloud', 3],
-        ['Software', 4],
-        ['Tools', 5],
-        ['Other', 6]
+        ['Container', 4],
+        ['Software', 5],
+        ['Tools', 6],
+        ['Mail or Domain', 7],
+        ['Other', 8]
       ];
       const stmt = db.prepare('INSERT INTO menus (name, "order") VALUES (?, ?)');
       defaultMenus.forEach(([name, order]) => stmt.run(name, order));
@@ -110,11 +112,10 @@ db.serialize(() => {
         const subMenus = [
           { parentMenu: 'Ai Stuff', name: 'AI chat', order: 1 },
           { parentMenu: 'Ai Stuff', name: 'AI tools', order: 2 },
-          { parentMenu: 'Tools', name: 'Dev Tools', order: 1 },
-          { parentMenu: 'Software', name: 'Mac', order: 1 },
-          { parentMenu: 'Software', name: 'iOS', order: 2 },
-          { parentMenu: 'Software', name: 'Android', order: 3 },
-          { parentMenu: 'Software', name: 'Windows', order: 4 }
+          { parentMenu: 'Container', name: 'Game Server', order: 1 },
+          { parentMenu: 'Tools', name: 'Free SMS', order: 1 },
+          { parentMenu: 'Software', name: 'Proxy', order: 1 },
+          { parentMenu: 'Software', name: 'Macos', order: 2 },
         ];
         
         const subMenuStmt = db.prepare('INSERT INTO sub_menus (parent_id, name, "order") VALUES (?, ?, ?)');
@@ -495,4 +496,5 @@ db.serialize(() => {
 
 
 module.exports = db; 
+
 
