@@ -480,7 +480,9 @@ db.serialize(() => {
     if (row && row.count === 0) {
       const defaultFriends = [
         ['Noodseek图床', 'https://www.nodeimage.com', 'https://www.nodeseek.com/static/image/favicon/favicon-32x32.png'],
-        ['Font Awesome', 'https://fontawesome.com', 'https://fontawesome.com/favicon.ico']
+        ['Serv00 Host Status', 'https://status.eooce.com', '']
+        ['Serv00|ct8自动化安装面板', 'https://serv00.eooce.com', '']
+        ['IP6.ARPA域名自动添加SSL证书', 'https://ip6.fa2.netlib.re', '']
       ];
       const stmt = db.prepare('INSERT INTO friends (title, url, logo) VALUES (?, ?, ?)');
       defaultFriends.forEach(([title, url, logo]) => stmt.run(title, url, logo));
@@ -494,6 +496,7 @@ db.serialize(() => {
 
 
 module.exports = db; 
+
 
 
 
